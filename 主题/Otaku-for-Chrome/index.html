@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>新标签页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="moonrailgun">
+    <script src="lib/jquery-2.2.4.min.js"></script>
+    <script src="lib/filer.js-0.4.5/dist/filer.min.js"></script>
+    <script src="lib/lodash.min.js"></script>
+    <script src="js/widget.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/main.js"></script>
+    <link type="text/css" rel="stylesheet" href="./lib/bootstrap/bootstrap-reboot.css"/>
+    <link type="text/css" rel="stylesheet" href="./lib/bootstrap/bootstrap-grid.css"/>
+    <link type="text/css" rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
+
+</head>
+
+<body>
+  <div id="background"></div>
+  <div id="toolbar">
+    <div class="logo">Otaku!</div>
+    <div class="search">
+      <input type="search" autocomplete="off" placeholder="输入网址或搜点什么" autofocus="autofocus">
+      <div class="speech"></div>
+      <div class="suggestions"></div>
+    </div>
+    <div class="links"><a href="https://mail.google.com/mail/">Gmail</a></div>
+    <!-- <div class="apps-toggle">
+      <svg viewBox="0 0 21 21">
+        <path fill="#EF5350" d="M5,2.5C5,3.875,3.875,5,2.5,5S0,3.875,0,2.5S1.125,0,2.5,0S5,1.125,5,2.5z"></path> <path fill="#FFA726" d="M13,2.5C13,3.875,11.875,5,10.5,5S8,3.875,8,2.5S9.125,0,10.5,0S13,1.125,13,2.5z"></path>
+        <path fill="#EF5350" d="M21,2.5C21,3.875,19.875,5,18.5,5S16,3.875,16,2.5S17.125,0,18.5,0S21,1.125,21,2.5z"></path>
+        <path fill="#FFA726" d="M21,10.5c0,1.375-1.125,2.5-2.5,2.5S16,11.875,16,10.5S17.125,8,18.5,8S21,9.125,21,10.5z"></path>
+        <path fill="#42A5F5" d="M21,18.5c0,1.375-1.125,2.5-2.5,2.5S16,19.875,16,18.5s1.125-2.5,2.5-2.5S21,17.125,21,18.5z"></path>
+        <path fill="#FFA726" d="M13,18.5c0,1.375-1.125,2.5-2.5,2.5S8,19.875,8,18.5S9.125,16,10.5,16S13,17.125,13,18.5z"></path>
+        <path fill="#48C34D" d="M5,18.5C5,19.875,3.875,21,2.5,21S0,19.875,0,18.5S1.125,16,2.5,16S5,17.125,5,18.5z"></path>
+        <path fill="#48C34D" d="M5,10.5C5,11.875,3.875,13,2.5,13S0,11.875,0,10.5S1.125,8,2.5,8S5,9.125,5,10.5z"></path>
+        <path fill="#42A5F5" d="M13,10.5c0,1.375-1.125,2.5-2.5,2.5S8,11.875,8,10.5S9.125,8,10.5,8S13,9.125,13,10.5z"></path>
+      </svg>
+    </div> -->
+    <div class="menu-toggle">
+      <div class="img"></div>
+      <div class="menu-container"></div>
+    </div>
+  </div>
+  <div id="all">
+    <div class="col-lg-10 offset-lg-1 row">
+      <div id="left-panel" class="col-sm-3 otk-panel-col">
+
+      </div>
+      <div id="center-panel" class="col-sm-6 otk-panel-col">
+
+      </div>
+      <div id="right-panel" class="col-sm-3 otk-panel-col">
+
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay"></div>
+  <div id="settings">
+    <div class="menu">
+      <div class="title">
+        <i class="fa fa-cog"></i>
+        <span>设置</span>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item active" data-menu-name="common">通用</div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content-item active" data-menu="common">
+        <h2>壁纸</h2>
+        <div class="sub-item">
+          <div class="wallpaper row">
+            <div class="col-6">
+              <a href="#" class="random-wallpaper">随机选择</a>
+              <p><strong>或</strong></p>
+              <input class="url-wallpaper" type="text" placeholder="输入图片地址">
+              <p><strong>或</strong></p>
+              <a>
+                <span>浏览本地图片</span>
+                <input class="local-wallpaper" type="file" accept="image/jpeg">
+              </a>
+              <p class="tips">只支持jpg格式图片</p>
+            </div>
+            <div class="col-6">
+              <img class="thumbnail" src="./images/defaultBackground.jpg" />
+              <p class="tips">右键上图另存为即可保存壁纸</p>
+            </div>
+          </div>
+
+        </div>
+        <h2>小部件</h2>
+        <div class="sub-item widget-list">
+
+        </div>
+        <h2>links</h2>
+        <div class="sub-item">
+          <input class="link-label" type="text" placeholder="标签名">
+          <input class="link-website" type="text" placeholder="连接网址">
+          <a class="add-link">添加link</a>
+          <p class="links-tip"></p>
+        </div>
+        <div class="sub-item links-list">
+          <a class="links-item" href="https://mail.google.com/mail/">
+            Gmail
+            <i class="fa fa-close"></i>
+          </a>
+        </div>
+        <h2>系统</h2>
+        <div class="sub-item">
+          <a href="#" class="system-reset">清除所有个人设置</a>
+        </div>
+      </div>
+    </div>
+    <div class="close"><i class="fa fa-close"></i></div>
+  </div>
+</body>
+
+</html>

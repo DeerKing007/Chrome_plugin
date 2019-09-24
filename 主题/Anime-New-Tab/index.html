@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>New Tab</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="background"></div>
+	<canvas id="loadingPage" width="1920" height="1080"></canvas>
+	<div id="top-left">
+		<div id="weather">
+			<!--Todo:图表化并做一周的天气预报-->
+			<p><span id="temperature"></span>℃</p>
+			<p id="city"></p>
+			<p><span id="aqi"></span></p>
+		</div>
+	</div>
+	<div id="top">
+		<div id="Animation">
+			<div class="tab_container">
+				<input id="tab1" type="radio" name="tabs" data-weekday='1' data-insert='no'>
+				<label for="tab1"><span>周一</span></label>
+
+				<input id="tab2" type="radio" name="tabs" data-weekday='2' data-insert='no'>
+				<label for="tab2"><span>周二</span></label>
+
+				<input id="tab3" type="radio" name="tabs" data-weekday='3' data-insert='no'>
+				<label for="tab3"><span>周三</span></label>
+
+				<input id="tab4" type="radio" name="tabs" data-weekday='4' data-insert='no'>
+				<label for="tab4"><span>周四</span></label>
+
+				<input id="tab5" type="radio" name="tabs" data-weekday='5' data-insert='no'>
+				<label for="tab5"><span>周五</span></label>
+
+				<input id="tab6" type="radio" name="tabs" data-weekday='6' data-insert='no'>
+				<label for="tab6"><span>周六</span></label>
+
+				<input id="tab0" type="radio" name="tabs" data-weekday='0' data-insert='no'>
+				<label for="tab0"><span>周日</span></label>
+				<section id="content1" class="tab-content auto">
+					<ul class="bangumiList">
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="http://172.20.100.159:5000/case/details?analyzerName=%E5%BC%A0%E9%B9%8F&rd_analyzer=show&lupaofeijieguan=show">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">PNC</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="http://wiki.baidu.com/pages/viewpage.action?pageId=198568310">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">BaiDu wiki</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="http://hetu.baidu.com/api/platform/api/show?apiId=543">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">河图</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="https://ecloud.baidu.com/index.html#/person/0">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">企业云盘</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="http://agroup.baidu.com/adutest/home">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">AGroup</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+
+					</ul>
+				</section>
+
+				<section id="content2" class="tab-content auto">
+					<ul class="bangumiList">
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="https://github.com/DeerKing007">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">github DK</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="https://www.githubs.cn/">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">github CN</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="http://172.20.100.159:11011/">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">gitlab</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="https://arxiv.org/">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">arxiv</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+
+					</ul>
+				</section>
+
+				<section id="content3" class="tab-content auto">
+					<ul class="bangumiList">
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="http://www.bejson.com/">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">在线解Json</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="https://morvanzhou.github.io">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">莫烦python</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="https://arxiv.org/">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">arxiv</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="bangumiItem">
+							<div class="bangumiContain">
+								<a target="_blank" class="bangumiPreview" href="http://www.58xueba.com/">
+									<div class="bangumIntro">
+										<p><span class="animeTitle">Chrome主题</span></p>
+									</div>
+								</a>
+							</div>
+						</li>
+
+					</ul>
+				</section>
+
+				<section id="content4" class="tab-content auto">
+					<ul class="bangumiList"></ul>
+				</section>
+
+				<section id="content5" class="tab-content auto">
+					<ul class="bangumiList"></ul>
+				</section>
+
+				<section id="content6" class="tab-content auto">
+					<ul class="bangumiList"></ul>
+				</section>
+
+				<section id="content0" class="tab-content auto">
+					<ul class="bangumiList"></ul>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div id="top-right">
+		<div>
+<!--			<img id="AnimationToggle" src="icon/战场原Tips.png" alt="看什么看！">-->
+
+			<canvas id="live2d" width="170px" height="170px"></canvas>
+			<div class="send">
+				今天也要努力哦~
+				<div class="arrow"></div>
+			</div>
+		</div>
+	</div>
+	<div id="center">
+		<div id="clock">
+			<h1 id='time'></h1>
+			<h2 id='date'></h2>
+		</div>
+	</div>
+	<div id="center-below">
+		<div id="search">
+			<h3>What are you looking for?</h3>
+			<input id="searchInput" type="text">
+		</div>
+	</div>
+	<div id="bottom-left">
+		<div>
+			<span id='changeTheme'>Change Theme</span>
+		</div>
+	</div>
+	<div id="bottom-right">
+		<div id="changeColor">
+			<span id='fontColor'>FontColor</span>
+		</div>
+		<div id="hidePanel">
+			<span id='hideSpan'>hidePanel</span>
+		</div>
+		<span id="preLoadToggle">preLoadAnime</span>
+		<div id="translate">
+			<span id='translateTitle'>Translate</span>
+			<span id='translatePanel'>
+				<input id='translateInput' placeholder="翻译点啥好呢？">
+				<span id="translateResult"></span>
+			</span>
+		</div>
+		<span id="download">DownLoad</span>
+		<div id="todoPanel">
+			<div id="panel">
+				<div id='todoHeader'>
+					<span id='todoCount'></span>
+				</div>
+				<div id='todoEmpty'></div>
+				<ol id='todoList'>
+				</ol>
+				<input id="todoNew" placeholder="New Todo">
+			</div>
+			<span id="todo">Todo</span>
+		</div>
+	</div>
+</body>
+<script src="lib/jquery-2.2.4.min.js"></script>
+<script src="js/LGPreLoading.js"></script>
+<script src="lib/live2d.min.js"></script>
+<script src="js/main.js"></script>
+
+</html>

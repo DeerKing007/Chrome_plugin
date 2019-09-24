@@ -1,0 +1,45 @@
+<style>
+#clock{
+  padding: 20px 6px;
+  /*min-height: 280px!important;*/
+}
+
+#clock div{
+  text-align: center;
+}
+
+#clock .date{
+  font-size: 20px;
+  color: rgb(88, 88, 88);
+}
+
+#clock .time{
+  font-size: 180px;
+  font-size: 10vw;
+  font-weight: 600;
+  line-height: 180px;
+  line-height: 10vw;
+  color: #757575;
+  padding: 20px 0;
+}
+</style>
+
+<div id="clock">
+  <div class="date">&nbsp;</div>
+  <div class="time">-:-:-</div>
+</div>
+
+<script>
+$(function(){
+  var date = $('#clock .date');
+  var time = $('#clock .time');
+
+  var updateClock = function(){
+    var myDate = new Date();
+    date.text(myDate.Format("yyyy年MM月dd日"));
+    time.text(myDate.Format("hh:mm"));
+  }
+  updateClock();
+  setInterval(updateClock,10000);
+})
+</script>

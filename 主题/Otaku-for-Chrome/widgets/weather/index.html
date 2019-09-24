@@ -1,0 +1,87 @@
+<style>
+#weather{
+  /*text-align: right;*/
+  padding: 6px;
+}
+#weather .city{
+  font-size: 30px;
+}
+#weather .city small {
+  color: #575757;
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+#weather .city span {
+  font-size: 24px;
+  margin-left: 16px;
+}
+#weather .tips{
+  font-size: 8px;
+  color: #575757;
+}
+</style>
+
+<div id="weather">
+  <h2 class="city"></h2>
+  <p><span class="temperature"></span></p>
+  <p>空气质量:<span class="aqi"></span></p>
+  <p><span class="tips"></span></p>
+</div>
+
+<script>
+$(function(){
+  var updateWeather = function(weatherData){
+    if(weatherData) {
+      var city = weatherData.city;
+      var temperature = '当前 ' + weatherData.temperature + "℃";
+      if(weatherData.forecast && weatherData.forecast[0]) {
+        var curForecast = weatherData.forecast[0];
+        city += '<small>('+curForecast.date+')</small>';
+        temperature += '; ' + curForecast.high + '; ' + curForecast.low;
+        city += '<span>'+curForecast.type+'</span>';
+      }
+
+      $('#weather .city').html(city);
+      $('#weather .temperature').text(temperature);
+      $('#weather .tips').text(weatherData.tips);
+      $('#weather .aqi').text(weatherData.aqi);
+    }
+  }
+  var saveLastWeather = function(weatherData){
+    var temp = Core.widgetSettings.get("weather");
+    temp.lastWeatherData = weatherData
+    Core.widgetSettings.set("weather",temp);
+  }
+  var settings = Core.widgetSettings.get("weather");
+  var city = '上海';
+  if(settings){
+    city = settings.city;
+    lastWeatherData = settings.lastWeatherData;
+    updateWeather(lastWeatherData);
+  }else{
+    Core.widgetSettings.set("weather",{city:"上海"})
+  }
+
+  Core.widgetSettings.registerUI("weather",[{
+    type:"text",
+    name:"city",
+    label:{
+      city:"城市"
+    }
+  }],"天气");
+
+  var url = 'http://wthrcdn.etouch.cn/weather_mini?city=' + city;
+  $.getJSON(url, function(json, textStatus) {
+    var data = {
+      city:json.data.city,
+      temperature: json.data.wendu,
+      tips:json.data.ganmao,
+      aqi:json.data.aqi,
+      forecast:json.data.forecast,
+    }
+    updateWeather(data);
+    saveLastWeather(data);
+  });
+});
+</script>
